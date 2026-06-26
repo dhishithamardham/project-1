@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spam Message Detector</title>
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Spam Message Detector</h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <textarea name="message"
+        placeholder="Type your message here..."></textarea>
+
+        <br>
+
+        <button type="submit">
+            Check Spam
+        </button>
+
+    </form>
+
+    {% if result %}
+        <div class="result">
+            {{ result }}
+        </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
